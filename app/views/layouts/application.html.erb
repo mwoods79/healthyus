@@ -10,8 +10,10 @@
     <div id="nav" class="round">
       <%= link_to image_tag("HealthyUs_Logo_TextOnly.png", :size => '180x45') %>
       <ul>
-        Welcome <%=h current_user.username %>! Not you?
-        <%= link_to "Log out", logout_path %>
+        <% if logged_in? %>
+          Welcome <%=h current_user.username %>! Not you?
+          <%= link_to "Log out", logout_path %>
+        <% end %>
       </ul>
     </div>
     <div id="container" class="round">
