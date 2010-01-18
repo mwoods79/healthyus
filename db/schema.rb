@@ -9,7 +9,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091101030557) do
+ActiveRecord::Schema.define(:version => 20100118201802) do
+
+  create_table "ingredients", :force => true do |t|
+    t.string   "Shrt_Desc"
+    t.float    "Energ_Kc"
+    t.float    "Protein"
+    t.float    "Lipid_Tot"
+    t.float    "Fiber_TD"
+    t.float    "Sugar_Tot"
+    t.float    "Calcium"
+    t.float    "Iron"
+    t.float    "Sodium"
+    t.float    "FA_Sat"
+    t.float    "Cholestrl"
+    t.float    "GmWt_1"
+    t.string   "GmWt_Desc1"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "username"
