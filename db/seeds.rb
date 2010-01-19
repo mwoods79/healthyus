@@ -6,9 +6,7 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Major.create(:name => 'Daley', :city => cities.first)
 
-
-
-
+# Pass an abbreviated sr22 to this method.  This will save the wanted properties to the database.
 def build(filename)
   File.open(filename, 'r') do |file|
     file.each_line do |ingredient|
@@ -20,58 +18,56 @@ end
 
 private
 
+# Used for testing.  Prints the parsed ingredient to the screen.
 def print_ingredient(ingredient)
  properties = Array.new
-  ingredient.each('^') do |string|
-    properties << string.chop.gsub(/~/, '')
+  ingredient.each('^') do |property|
+    properties << property.chop.gsub(/~/, '')
   end
 
   h = {
-    :Shrt_Desc => properties[1],
-    :Energ_Kc => properties[3],
-    :Protein => properties[4],
-    :Lipid_Tot => properties[5],
-    :Fiber_TD => properties[8],
-    :Sugar_Tot => properties[9],
-    :Calcium => properties[10],
-    :Iron => properties[11],
-    :Sodium => properties[15],
-    :FA_Sat => properties[44],
-    :Cholestrl => properties[47],
-    :GmWt_1 => properties[48],
-    :GmWt_Desc1 => properties[49] 
+    :Shrt_Desc  =>   properties[1],
+    :Energ_Kc   =>   properties[3],
+    :Protein    =>   properties[4],
+    :Lipid_Tot  =>   properties[5],
+    :Fiber_TD   =>   properties[8],
+    :Sugar_Tot  =>   properties[9],
+    :Calcium    =>   properties[10],
+    :Iron       =>   properties[11],
+    :Sodium     =>   properties[15],
+    :FA_Sat     =>   properties[44],
+    :Cholestrl  =>   properties[47],
+    :GmWt_1     =>   properties[48],
+    :GmWt_Desc1 =>   properties[49] 
   }
 
-
-puts "#{h[:Shrt_Desc]} #{h[:Energ_Kc]} #{h[:Protein]} #{h[:Lipid_Tot]} #{h[:Fiber_TD]} #{h[:Sugar_Tot]} #{h[:Calcium]} #{h[:Iron]} #{h[:Sodium]} #{h[:FA_Sat]} #{h[:Cholestrl]} #{h[:GmWt_1]} #{h[:GmWt_Desc1]} \n--"
+  puts "#{h[:Shrt_Desc]} #{h[:Energ_Kc]} #{h[:Protein]} #{h[:Lipid_Tot]} #{h[:Fiber_TD]} #{h[:Sugar_Tot]} #{h[:Calcium]} #{h[:Iron]} #{h[:Sodium]} #{h[:FA_Sat]} #{h[:Cholestrl]} #{h[:GmWt_1]} #{h[:GmWt_Desc1]} \n--"
 
 end
 
-
-
-
-
+# Parses a line from the abbreviated sr22 and saves the wanted properties to the database.
 def add_ingredient(ingredient)
   properties = Array.new
-  ingredient.each('^') do |string|
-    properties << string.chop.gsub(/~/, '')
+  ingredient.each('^') do |property|
+    properties << property.chop.gsub(/~/, '')
   end
+
   Ingredient.create (
-    :Shrt_Desc => properties[1],
-    :Energ_Kc => properties[3],
-    :Protein => properties[4],
-    :Lipid_Tot => properties[5],
-    :Fiber_TD => properties[8],
-    :Sugar_Tot => properties[9],
-    :Calcium => properties[10],
-    :Iron => properties[11],
-    :Sodium => properties[15],
-    :FA_Sat => properties[44],
-    :Cholestrl => properties[47],
-    :GmWt_1 => properties[48],
-    :GmWt_Desc1 => properties[49]  )
+    :Shrt_Desc  =>   properties[1],
+    :Energ_Kc   =>   properties[3],
+    :Protein    =>   properties[4],
+    :Lipid_Tot  =>   properties[5],
+    :Fiber_TD   =>   properties[8],
+    :Sugar_Tot  =>   properties[9],
+    :Calcium    =>   properties[10],
+    :Iron       =>   properties[11],
+    :Sodium     =>   properties[15],
+    :FA_Sat     =>   properties[44],
+    :Cholestrl  =>   properties[47],
+    :GmWt_1     =>   properties[48],
+    :GmWt_Desc1 =>   properties[49]  
+  )
+
 end
 
-
 build("db/ABBREV.txt")
-
