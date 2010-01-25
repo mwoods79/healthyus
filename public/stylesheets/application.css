@@ -20,7 +20,6 @@ a {
 
 #container {
   width: 800px;
-  min-height: 400px;
   margin: 0px auto 0px auto;
   border-spacing: 0px 0px;
   padding: 0px;
@@ -122,7 +121,6 @@ a {
 }
 
 #main {
-  height: 600px;
   margin: 10px;
 }
 
@@ -136,7 +134,6 @@ a {
 }
 
 #side {
-  height: 600px;
   margin: 10px;
 }
 

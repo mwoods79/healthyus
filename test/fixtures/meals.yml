@@ -1,0 +1,11 @@
+one:
+  user_id: 1
+  title: MyString
+  ingredient: MyText
+  instructions: MyText
+
+two:
+  user_id: 1
+  title: MyString
+  ingredient: MyText
+  instructions: MyText

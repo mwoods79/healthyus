@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100118201802) do
+ActiveRecord::Schema.define(:version => 20100125062828) do
 
   create_table "ingredients", :force => true do |t|
     t.string   "Shrt_Desc"
@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(:version => 20100118201802) do
     t.float    "Cholestrl"
     t.float    "GmWt_1"
     t.string   "GmWt_Desc1"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "meals", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "ingredient"
+    t.text     "instructions"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

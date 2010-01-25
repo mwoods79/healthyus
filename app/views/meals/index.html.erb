@@ -1,0 +1,15 @@
+<% title "Meals" %>
+
+<h3><%= link_to "New Meal", new_meal_path %></h3>
+
+<% for meal in @meals %>
+    <p><strong>User:</strong><%=h meal.user_id %></p>
+    <p><strong>Title:</strong><%=h meal.title %></p>
+    <p><strong>Ingredients:</strong><%=h meal.ingredient %></p>
+    <p><strong>Instructions</strong><%=h meal.instructions %></p>
+    <p>
+      <%= link_to "Show", meal %>
+      <%= link_to "Edit", edit_meal_path(meal) %>
+      <%= link_to "Destroy", meal, :confirm => 'Are you sure?', :method => :delete %>
+    </p>
+<% end %>

@@ -11,8 +11,8 @@
       <%= link_to image_tag("hu_logo.png") %>
       <% if logged_in? %>
       <ul class="round">
-          <li><%= link_to "Home", root_url %></li> /
-          <li><%= link_to "Grocery List", root_url %></li> /
+          <li><%= link_to "Menu", root_url %></li> /
+          <li><%= link_to "Meals", meals_path %></li> /
           <li><%= link_to "Blog", root_url %></li> /
           <li><%= link_to "Profile", root_url %></li> /
           <li><%= link_to "Log out", logout_path %></li>
@@ -37,7 +37,7 @@
             </td>
             <td id="side_column" class="round">
               <div id="side">
-                <p>Advertising and extra navigation will go here. Minor change.</p>
+                <p>Advertising and extra navigation will go here.</p>
               </div>
             </td>
           </tr>

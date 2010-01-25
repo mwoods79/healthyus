@@ -1,0 +1,24 @@
+<% title "Meal" %>
+
+<p>
+  <strong>User:</strong>
+  <%=h @meal.user_id %>
+</p>
+<p>
+  <strong>Title:</strong>
+  <%=h @meal.title %>
+</p>
+<p>
+  <strong>Ingredient:</strong>
+  <%=h @meal.ingredient %>
+</p>
+<p>
+  <strong>Instructions:</strong>
+  <%=h @meal.instructions %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_meal_path(@meal) %> |
+  <%= link_to "Destroy", @meal, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", meals_path %>
+</p>
