@@ -11,10 +11,10 @@
       <%= link_to image_tag("hu_logo.png") %>
       <% if logged_in? %>
       <ul class="round">
-          <li><%= link_to "Menu", root_url %></li> /
-          <li><%= link_to "Meals", meals_path %></li> /
-          <li><%= link_to "Blog", root_url %></li> /
-          <li><%= link_to "Profile", root_url %></li> /
+          <li><%= link_to "Menu", root_url %></li>
+          <li><%= link_to "Meals", meals_path %></li>
+          <li><%= link_to "Blog", root_url %></li>
+          <li><%= link_to "Profile", root_url %></li>
           <li><%= link_to "Log out", logout_path %></li>
         <% end %>
       </ul>

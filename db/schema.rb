@@ -9,31 +9,40 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100125062828) do
+ActiveRecord::Schema.define(:version => 20100126202750) do
 
   create_table "ingredients", :force => true do |t|
-    t.string   "Shrt_Desc"
-    t.float    "Energ_Kc"
-    t.float    "Protein"
-    t.float    "Lipid_Tot"
-    t.float    "Fiber_TD"
-    t.float    "Sugar_Tot"
-    t.float    "Calcium"
-    t.float    "Iron"
-    t.float    "Sodium"
-    t.float    "FA_Sat"
-    t.float    "Cholestrl"
-    t.float    "GmWt_1"
-    t.string   "GmWt_Desc1"
+    t.string   "name"
+    t.float    "calories"
+    t.float    "protein"
+    t.float    "lipids"
+    t.float    "fiber"
+    t.float    "sugar"
+    t.float    "calcium"
+    t.float    "iron"
+    t.float    "sodium"
+    t.float    "saturated_fat"
+    t.float    "cholesteral"
+    t.float    "weight_in_grams"
+    t.string   "weight_description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "meal"
   end
 
   create_table "meals", :force => true do |t|
     t.integer  "user_id"
     t.string   "title"
-    t.text     "ingredient"
     t.text     "instructions"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "measurements", :force => true do |t|
+    t.integer  "meal_id"
+    t.integer  "ingredient_id"
+    t.float    "amount_in_grams"
+    t.string   "amount_descripiton"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

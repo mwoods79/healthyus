@@ -2,9 +2,8 @@ class CreateIngredients < ActiveRecord::Migration
   def self.up
     create_table :ingredients do |t|
 
-  
-    	t.string :Shrt_Desc
-	    t.float :Energ_Kc
+      t.string :Shrt_Desc
+      t.float :Energ_Kc
       t.float :Protein
       t.float :Lipid_Tot
       t.float :Fiber_TD

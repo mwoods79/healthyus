@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  meal_id: 1
+  ingredient_id: 1
+  amount_in_grams: 1.5
+  amount_descripiton: MyString
+
+two:
+  meal_id: 1
+  ingredient_id: 1
+  amount_in_grams: 1.5
+  amount_descripiton: MyString

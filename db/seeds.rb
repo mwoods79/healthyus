@@ -26,19 +26,19 @@ def print_ingredient(ingredient)
   end
 
   h = {
-    :Shrt_Desc  =>   properties[1],
-    :Energ_Kc   =>   properties[3],
-    :Protein    =>   properties[4],
-    :Lipid_Tot  =>   properties[5],
-    :Fiber_TD   =>   properties[8],
-    :Sugar_Tot  =>   properties[9],
-    :Calcium    =>   properties[10],
-    :Iron       =>   properties[11],
-    :Sodium     =>   properties[15],
-    :FA_Sat     =>   properties[44],
-    :Cholestrl  =>   properties[47],
-    :GmWt_1     =>   properties[48],
-    :GmWt_Desc1 =>   properties[49] 
+    :name               =>   properties[1],
+    :calories           =>   properties[3],
+    :protein            =>   properties[4],
+    :lipids             =>   properties[5],
+    :fiber              =>   properties[8],
+    :sugar              =>   properties[9],
+    :calcium            =>   properties[10],
+    :iron               =>   properties[11],
+    :sodium             =>   properties[15],
+    :saturated_fat      =>   properties[44],
+    :cholesteral        =>   properties[47],
+    :weight_in_grams    =>   properties[48],
+    :weight_description =>   properties[49] 
   }
 
   puts "#{h[:Shrt_Desc]} #{h[:Energ_Kc]} #{h[:Protein]} #{h[:Lipid_Tot]} #{h[:Fiber_TD]} #{h[:Sugar_Tot]} #{h[:Calcium]} #{h[:Iron]} #{h[:Sodium]} #{h[:FA_Sat]} #{h[:Cholestrl]} #{h[:GmWt_1]} #{h[:GmWt_Desc1]} \n--"
@@ -53,19 +53,19 @@ def add_ingredient(ingredient)
   end
 
   Ingredient.create (
-    :Shrt_Desc  =>   properties[1],
-    :Energ_Kc   =>   properties[3],
-    :Protein    =>   properties[4],
-    :Lipid_Tot  =>   properties[5],
-    :Fiber_TD   =>   properties[8],
-    :Sugar_Tot  =>   properties[9],
-    :Calcium    =>   properties[10],
-    :Iron       =>   properties[11],
-    :Sodium     =>   properties[15],
-    :FA_Sat     =>   properties[44],
-    :Cholestrl  =>   properties[47],
-    :GmWt_1     =>   properties[48],
-    :GmWt_Desc1 =>   properties[49]  
+    :name               =>   properties[1],
+    :calories           =>   properties[3],
+    :protein            =>   properties[4],
+    :lipids             =>   properties[5],
+    :fiber              =>   properties[8],
+    :sugar              =>   properties[9],
+    :calcium            =>   properties[10],
+    :iron               =>   properties[11],
+    :sodium             =>   properties[15],
+    :saturated_fat      =>   properties[44],
+    :cholesteral        =>   properties[47],
+    :weight_in_grams    =>   properties[48],
+    :weight_description =>   properties[49]  
   )
 
 end
