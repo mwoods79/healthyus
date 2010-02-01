@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(:version => 20100126202750) do
     t.string   "weight_description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "meal"
   end
 
   create_table "meals", :force => true do |t|

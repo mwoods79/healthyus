@@ -1,9 +1,13 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :meals
+  map.resources :ingredient
 
   map.signup 'signup', :controller => 'users', :action => 'new'
   map.logout 'logout', :controller => 'sessions', :action => 'destroy'
   map.login 'login', :controller => 'sessions', :action => 'new'
+  
+  map.ingredients 'ingredients', :controller => 'ingredient', :action => 'ingredients_for_lookup'
+  
   map.resources :sessions
 
   map.resources :users
