@@ -8,11 +8,15 @@
 
 # Pass an abbreviated sr22 to this method.  This will save the wanted properties to the database.
 def build(filename)
+  count = 0
   File.open(filename, 'r') do |file|
     file.each_line do |ingredient|
-      #print_ingredient(ingredient.chomp)
       add_ingredient(ingredient.chomp)
+      # I added this back so that we can see the seeds are working
+      print_ingredient(ingredient.chomp)
+      count += 1
     end
+    puts "#{count} ingredients added to Database!"
   end
 end
 
@@ -21,9 +25,9 @@ private
 # Used for testing.  Prints the parsed ingredient to the screen.
 def print_ingredient(ingredient)
  properties = Array.new
-  ingredient.each('^') do |property|
-    properties << property.chop.gsub(/~/, '')
-  end
+ ingredient.each('^') do |property|
+   properties << property.chop.gsub(/~/, '')
+ end
 
   h = {
     :name               =>   properties[1],
@@ -41,7 +45,7 @@ def print_ingredient(ingredient)
     :weight_description =>   properties[49] 
   }
 
-  puts "#{h[:Shrt_Desc]} #{h[:Energ_Kc]} #{h[:Protein]} #{h[:Lipid_Tot]} #{h[:Fiber_TD]} #{h[:Sugar_Tot]} #{h[:Calcium]} #{h[:Iron]} #{h[:Sodium]} #{h[:FA_Sat]} #{h[:Cholestrl]} #{h[:GmWt_1]} #{h[:GmWt_Desc1]} \n--"
+  puts "#{h[:name]} #{h[:calories]} #{h[:protein]} #{h[:lipids]} #{h[:fiber]} #{h[:sugar]} #{h[:calcium]} #{h[:iron]} #{h[:sodium]} #{h[:saturated_fat]} #{h[:cholestral]} #{h[:weight_in_grams]} #{h[:weight_description]} \n--"
 
 end
 

@@ -6,8 +6,6 @@ ActionController::Routing::Routes.draw do |map|
   map.logout 'logout', :controller => 'sessions', :action => 'destroy'
   map.login 'login', :controller => 'sessions', :action => 'new'
   
-  map.ingredients 'ingredients', :controller => 'ingredient', :action => 'ingredients_for_lookup'
-  
   map.resources :sessions
 
   map.resources :users

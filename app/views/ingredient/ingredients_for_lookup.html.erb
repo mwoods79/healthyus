@@ -1,6 +1,6 @@
-<% <% form_for @ingredient do |f| -%>
+<% form_for @ingredient do |f| -%>
   <p>
     <%= f.label :name %>
-    <%= text_field_with_auto_complete :ingredient, :name , {:size => 15}, :url => formatted_ingredients_path(:js), :method => :get%>
+    <%= text_field_with_auto_complete :ingredient, :name, {:size => 15}, :url => formatted_ingredients_path(:js), :method => :get, :param_name => 'search' %>
   </p>
-<% end -%>%>
+<% end -%>

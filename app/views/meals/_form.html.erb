@@ -6,7 +6,7 @@
   </p>
   <p>
     <%= f.label :ingredients %><br />
-    <!-- Code for ingredient view goes here. -->
+    <%= text_field_with_auto_complete :meal, :ingredient_name, {:size => 30}, { :url => "/ingredient.js", :method => :get, :param_name => 'search'} %>
   </p>
   <p>
     <%= f.label :instructions %><br />
