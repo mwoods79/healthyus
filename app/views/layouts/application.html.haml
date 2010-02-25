@@ -1,0 +1,32 @@
+!!! Strict
+%html{html_attrs}
+  
+  %head
+    %title
+      = h(yield(:title) || "Untitled")
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+    %script{:type=>"text/javascript", :src=>"http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"}
+    %script{:type=>"text/javascript", :src=>"http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"}
+    = javascript_include_tag 'application'
+    = stylesheet_link_tag 'application'
+    = yield(:head)
+  
+  %body
+    #nav
+      #logo= link_to image_tag("hu_logo.png")
+      - if logged_in?
+        %ul
+          %li= link_to "Menu", root_url
+          %li= link_to "Meals", root_url
+          %li= link_to "Blog", root_url
+          %li= link_to "Profile", root_url
+          %li= link_to "Logout", logout_path
+    .clear
+    #container
+      - flash.each do |name, msg|
+        = content_tag :div, msg, :id => "flash_#{name}"
+      
+      - if show_title?
+        %h1=h yield(:title)
+      
+      = yield
