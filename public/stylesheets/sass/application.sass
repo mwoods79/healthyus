@@ -1,10 +1,18 @@
-!primary_color = #4B7399
+!light_blue = #C0DEED
+!dark_blue = #ADC8D6
+!light_orange = #FE9202
+!dark_orange = #BF551A
+
 
 body
-  :background-color = !primary_color
-  :font
-    :family Verdana, Helvetica, Arial
-    :size 14px
+  margin: 0
+  padding: 0
+  background-color: #ADC8D6
+  
+p
+  font: 80%/1.8em Verdana, Geneva, Arial, Helvetica, sans-serif
+  padding-top: 0
+  margin-top: 0
 
 a
   :color #0000FF
@@ -15,13 +23,6 @@ a
   :clear both
   :height 0
   :overflow hidden
-
-#container
-  width: 800px
-  :margin 0 auto
-  :background #fff
-  :padding 20px 40px
-  :border solid 1px black
 
 #flash_notice,
 #flash_error
@@ -65,25 +66,66 @@ a
       :font-size 12px
       :list-style disc
 
+#content
+  background-color: white
+  margin: 10px 260px 0px 240px
+  padding: 10px
+  border: 1px solid #BF551A
+  h1
+    text-align: right
+    padding-right: 20px
+    font: 150% Georgia, "Times New Roman", Times, serif
+    color: #901602
+    
 #nav
-  width: 800px
-  margin: 0 auto
-  #logo
-    display: inline
-    a:link, a:visited, a:hover
-      border: none
+  position: absolute
+  width: 200px
+  top: 20px
+  left: 10px
+  padding: 70px 10px 10px 10px
+  h3
+    font: 110% Georgia, "Times New Roman", Times, serif
+    color: #621313
+    margin: 0
+    padding-bottom: 4px
+  .txt
+    width: 184px
+    background-color: #FCF5F5
+    border: 1px inset #901602
   ul
-    padding: 5px
-    background-color: #FFF
-    float: right
+    list-style: none
+    margin-left: 0
+    padding-left: 0
+    width: 184px
   li
-    display: inline
-    padding: 4px
+    font: 100% Verdana, Geneva, Arial, Helvetica, sans-serif
+    margin-bottom: 0.3em
+    border-bottom: 1px solid #BF551A
   a:link, a:visited
-    color: blue
-    width: auto
-    padding: 0px 2px
-    border-left: 1px solid orange
     text-decoration: none
+    color:#901602
+    background-color: transparent
   a:hover
-    text-decoration: underline
+    color: #FE9202
+
+#ads
+  position: absolute
+  width: 220px
+  top: 20px
+  right: 10px
+  padding: 70px 10px 10px 10px
+  border-left: 1px dotted #BF551A
+  h3
+    font: 110% Georgia, "Times New Roman", Times, serif
+    margin: 0
+    padding-bottom: 4px
+
+.adbox
+  padding: 2px 4px 2px 6px
+  margin: 0 0 10px 0
+  border: 1px dotted #BF551A
+  background-color: #C0DEED
+
+#logo
+  float: left
+  padding: 20px

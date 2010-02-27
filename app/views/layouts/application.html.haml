@@ -12,9 +12,18 @@
     = yield(:head)
   
   %body
+    #logo
+      =image_tag("hu_logo.png")
     #nav
-      #logo= link_to image_tag("hu_logo.png")
       - if logged_in?
+        %form{:method=>"post", :action=>"", :id=>"searchform"}
+          %h3
+            %label{:for=>"keys"}
+              Search for recipes
+          %div
+            %input{:type=>"text", :name=>"keys", :id=>"keys", :class=>"txt"}
+            %br
+            %input{:type=>"submit", :name=>"submit", :value=>"Submit"}
         %ul
           %li= link_to "Menu", root_url
           %li= link_to "Meals", root_url
@@ -22,7 +31,7 @@
           %li= link_to "Profile", root_url
           %li= link_to "Logout", logout_path
     .clear
-    #container
+    #content
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => "flash_#{name}"
       
@@ -30,3 +39,14 @@
         %h1=h yield(:title)
       
       = yield
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      .clear
+    - if logged_in?
+      #ads
+        %h3 Please Visit our Sponsors
+        .adbox
+          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        .adbox
+          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        .adbox
+          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
