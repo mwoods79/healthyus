@@ -10,15 +10,7 @@
 # Takes a '^' delimted line from the SR ASCII files and parses data into an array
 def process_line(line)
   line.split("^").map do |field|
-    if field =~ /^~.+~$/
-      field.gsub(/^~(.+)~$/, "\\1")
-    elsif field =~ /^\d+$/
-      field.to_i
-    elsif field =~ /^\d+\.\d+$/
-      field.to_f
-    else
-      nil
-    end
+    field.gsub(/~/, '').chomp
   end
 end
 
@@ -45,13 +37,13 @@ File.open("#{RAILS_ROOT}/db/nutrition/NUTR_DEF.txt", "r") do |file|
   end
 end
 
-puts "> Importing Food Groups" # -------------------------------- FOOD GROUPS --
+puts "\n> Importing Food Groups" # -------------------------------- FOOD GROUPS --
 count = 0
 File.open("#{RAILS_ROOT}/db/nutrition/FD_GROUP.txt", "r") do |file|
   while line = file.gets
     group = process_line(line)
     group_id_map[ group[0].to_sym ] = FoodGroup.create( 
-      :name => nutrient[1]
+      :name => group[1]
     ).id
     STDOUT.write("#{count}...") && STDOUT.flush if (count += 1) % 1000 == 0
   end
@@ -83,12 +75,11 @@ count = 0
 File.open("#{RAILS_ROOT}/db/nutrition/WEIGHT.txt", "r") do |file|
   while line = file.gets
     weight = process_line(line)
-    FoodWeight.create(
+    CommonWeight.create(
       :food_id => food_id_map[ weight[0].to_sym ],
       :position => weight[1],
       :amount => weight[2],
-      :description =>
-      weight[3],
+      :description => weight[3],
       :weight => weight[4]
     )
     STDOUT.write("#{count}...") && STDOUT.flush if (count += 1) % 1000 == 0
