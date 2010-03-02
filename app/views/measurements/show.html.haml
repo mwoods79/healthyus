@@ -1,0 +1,21 @@
+- title "Measurement"
+
+%p
+  %strong Amount In Grams:
+  =h @measurement.amount_in_grams
+%p
+  %strong Amount In Oz:
+  =h @measurement.amount_in_oz
+%p
+  %strong Meal:
+  =h @measurement.meal_id
+%p
+  %strong Food:
+  =h @measurement.food_id
+
+%p
+  = link_to "Edit", edit_measurement_path(@measurement)
+  |
+  = link_to "Destroy", @measurement, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", measurements_path

@@ -1,0 +1,19 @@
+- title "Measurements"
+
+%table
+  %tr
+    %th Amount in grams
+    %th Amount in oz
+    %th Meal
+    %th Food
+  - for measurement in @measurements
+    %tr
+      %td= h measurement.amount_in_grams
+      %td= h measurement.amount_in_oz
+      %td= h measurement.meal_id
+      %td= h measurement.food_id
+      %td= link_to 'Show', measurement
+      %td= link_to 'Edit', edit_measurement_path(measurement)
+      %td= link_to 'Destroy', measurement, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Measurement", new_measurement_path

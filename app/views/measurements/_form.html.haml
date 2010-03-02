@@ -1,0 +1,20 @@
+- form_for @measurement do |f|
+  = f.error_messages
+  %p
+    = f.label :amount_in_grams
+    %br
+    = f.text_field :amount_in_grams
+  %p
+    = f.label :amount_in_oz
+    %br
+    = f.text_field :amount_in_oz
+  %p
+    = f.label :meal_id
+    %br
+    = f.text_field :meal_id
+  %p
+    = f.label :food_id
+    %br
+    = f.text_field :food_id
+  %p
+    = f.submit "Submit"

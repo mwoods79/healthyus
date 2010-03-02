@@ -8,40 +8,21 @@
     %script{:type=>"text/javascript", :src=>"http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"}
     %script{:type=>"text/javascript", :src=>"http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"}
     = javascript_include_tag 'application'
-    = stylesheet_link_tag 'application'
+    = stylesheet_link_tag 'application', 'formtastic', 'formtastic_changes', :cache => "healthyus"
     = yield(:head)
   
   %body
     #logo
       =image_tag("hu_logo.png")
-    #nav
-      - if logged_in?
-        %form{:method=>"post", :action=>"", :id=>"searchform"}
-          %h3
-            %label{:for=>"keys"}
-              Search for recipes
-          %div
-            %input{:type=>"text", :name=>"keys", :id=>"keys", :class=>"txt"}
-            %br
-            %input{:type=>"submit", :name=>"submit", :value=>"Submit"}
+    - if logged_in?
+      #nav
         %ul
           %li= link_to "Menu", root_url
           %li= link_to "Meals", root_url
           %li= link_to "Blog", root_url
           %li= link_to "Profile", root_url
           %li= link_to "Logout", logout_path
-    .clear
-    #content
-      - flash.each do |name, msg|
-        = content_tag :div, msg, :id => "flash_#{name}"
-      
-      - if show_title?
-        %h1=h yield(:title)
-      
-      = yield
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       .clear
-    - if logged_in?
       #ads
         %h3 Please Visit our Sponsors
         .adbox
@@ -50,3 +31,13 @@
           %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         .adbox
           %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    #content
+      - flash.each do |name, msg|
+        = content_tag :div, msg, :id => "flash_#{name}"
+      
+      - if show_title?
+        %h1=h yield(:title)
+      
+      = yield
+      .clear
+      

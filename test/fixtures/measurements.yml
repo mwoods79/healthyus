@@ -1,0 +1,11 @@
+one:
+  amount_in_grams: 1
+  amount_in_oz: 9.99
+  meal_id: 1
+  food_id: 1
+
+two:
+  amount_in_grams: 1
+  amount_in_oz: 9.99
+  meal_id: 1
+  food_id: 1

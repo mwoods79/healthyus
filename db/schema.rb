@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100228222719) do
+ActiveRecord::Schema.define(:version => 20100301190948) do
 
   create_table "common_weights", :force => true do |t|
     t.integer "food_id",                                                 :null => false
@@ -40,6 +40,30 @@ ActiveRecord::Schema.define(:version => 20100228222719) do
     t.decimal "protein_factor"
     t.decimal "fat_factor"
     t.decimal "carb_factor"
+  end
+
+  create_table "meal_steps", :force => true do |t|
+    t.string  "step",    :null => false
+    t.integer "meal_id", :null => false
+  end
+
+  create_table "meal_tags", :force => true do |t|
+    t.string  "name",    :null => false
+    t.integer "meal_id", :null => false
+  end
+
+  create_table "meals", :force => true do |t|
+    t.string   "title",      :null => false
+    t.integer  "user_id",    :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "measurements", :force => true do |t|
+    t.integer "amount_in_grams", :null => false
+    t.decimal "amount_in_oz",    :null => false
+    t.integer "meal_id",         :null => false
+    t.integer "food_id",         :null => false
   end
 
   create_table "nutrients", :force => true do |t|
