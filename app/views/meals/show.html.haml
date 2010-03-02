@@ -3,6 +3,10 @@
 %p
   %strong Title:
   =h @meal.title
+%ol
+  - for tag in @meal.meal_tags
+    %li
+      =h tag.name
 
 %p
   = link_to "Edit", edit_meal_path(@meal)

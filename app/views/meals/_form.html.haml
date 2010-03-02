@@ -1,3 +1,8 @@
-- semantic_form_for(@meal) do |f|
-  = f.inputs
-  = f.buttons
+- semantic_form_for @meal do |f|
+  - f.inputs do 
+    = f.input :title
+    - f.fields_for :meal_tags do |tag_form|
+      = tag_form.input :name, :label => 'Tag'
+    - f.fields_for :meal_steps do |step_form|
+      = step_form.input :step, :label => 'Step'
+    = f.commit_button 'Create Meal'

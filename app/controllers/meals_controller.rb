@@ -9,10 +9,13 @@ class MealsController < ApplicationController
   
   def new
     @meal = Meal.new
+    @meal.meal_tags.build
+    @meal.meal_steps.build
   end
   
   def create
     @meal = Meal.new(params[:meal])
+    @meal.user_id = current_user.id
     if @meal.save
       flash[:notice] = "Successfully created meal."
       redirect_to @meal

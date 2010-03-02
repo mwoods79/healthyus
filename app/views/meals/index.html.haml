@@ -3,9 +3,12 @@
 %table
   %tr
     %th Title
+    %th Tags
   - for meal in @meals
     %tr
       %td= h meal.title
+      - for tag in meal.meal_tags
+        %td= h tag.name
       %td= link_to 'Show', meal
       %td= link_to 'Edit', edit_meal_path(meal)
       %td= link_to 'Destroy', meal, :confirm => 'Are you sure?', :method => :delete
