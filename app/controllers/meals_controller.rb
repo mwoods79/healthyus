@@ -10,7 +10,7 @@ class MealsController < ApplicationController
   def new
     @meal = Meal.new
     @meal.meal_tags.build
-    @meal.meal_steps.build
+    2.times { @meal.meal_steps.build }
   end
   
   def create

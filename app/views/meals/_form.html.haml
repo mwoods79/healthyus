@@ -1,10 +1,20 @@
-- semantic_form_for @meal do |f|
-  - f.inputs do 
-    = f.input :title
-    - f.fields_for :meal_steps do |builder|
-      - render "meal_step_fields", :f => builder
-      = link_to_add_fields "Add Step", f, :meal_steps
-    - f.fields_for :meal_tags do |builder|
-      - render "meal_tag_fields", :f => builder
-      = link_to_add_fields "Add Tag", f, :meal_steps
-    = f.commit_button 'Create Meal'
+- form_for @meal do |f|
+  = f.error_messages
+  %p
+    = f.label :title
+  %p
+    = f.text_field :title
+  - f.fields_for :meal_steps do |b|
+    %p
+      = b.label :step
+      = b.text_field :step
+      = b.check_box :_destroy
+      = b.label :_destroy, "Delete"
+  - f.fields_for :meal_tags do |k|
+    %p
+      = k.label :name, "Tag"
+      = k.text_field :name
+      = k.check_box :_destroy
+      = k.label :_destroy, "Delete"
+  %p
+    = f.submit "Create Meal"
