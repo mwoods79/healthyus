@@ -1,7 +1,7 @@
 - form_for @meal do |f|
   = f.error_messages
   %p
-    = f.label :title
+    = f.label :title, "Title: "
     = f.text_field :title
 
   - f.fields_for :meal_steps do |builder|
