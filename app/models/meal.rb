@@ -6,9 +6,11 @@ class Meal < ActiveRecord::Base
   has_many :measurements, :dependent => :destroy
   has_many :foods, :through => :measurements
   
-  accepts_nested_attributes_for :meal_tags, :meal_steps, :measurements,
+  accepts_nested_attributes_for :meal_tags, :meal_steps,
                                 :allow_destroy => true,
                                 :reject_if => proc { |attributes| attributes['name'].blank? }
+  
+  accepts_nested_attributes_for :measurements, :allow_destroy => true
   
   validates_presence_of :title
 end

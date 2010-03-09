@@ -1,12 +1,20 @@
-- title "Meal"
+- title @meal.title
 
-%p
-  %strong Title:
-  =h @meal.title
+%h3 Ingredients
+- for measurement in @meal.measurements
+  %p= "#{measurement.amount_in_grams} + " " + #{measurement.food.name}"
+
+%h3 Steps
 %ol
+  - for step in @meal.meal_steps
+    %li
+      %h3=h step.name
+
+%h3 Tags
+%ul
   - for tag in @meal.meal_tags
     %li
-      =h tag.name
+      %h3=h tag.name
 
 %p
   = link_to "Edit", edit_meal_path(@meal)

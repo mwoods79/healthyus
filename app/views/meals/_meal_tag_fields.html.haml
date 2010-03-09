@@ -1,4 +1,5 @@
-.fields
-  = f.input :name, :label => "Tag"
-  = link_to_remove_fields "remove", f
-  
+%p
+  = f.label :name, "Tag"
+  = f.text_field :name
+  = f.hidden_field :_destroy
+  = link_to_function "remove", "remove_fields(this)"

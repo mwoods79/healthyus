@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100301190948) do
+ActiveRecord::Schema.define(:version => 20100309155335) do
 
   create_table "common_weights", :force => true do |t|
     t.integer "food_id",                                                 :null => false
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(:version => 20100301190948) do
   end
 
   create_table "meal_steps", :force => true do |t|
-    t.string  "step",    :null => false
+    t.string  "name",    :null => false
     t.integer "meal_id", :null => false
   end
 

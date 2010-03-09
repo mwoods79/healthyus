@@ -2,19 +2,13 @@
   = f.error_messages
   %p
     = f.label :title
-  %p
     = f.text_field :title
-  - f.fields_for :meal_steps do |b|
-    %p
-      = b.label :step
-      = b.text_field :step
-      = b.check_box :_destroy
-      = b.label :_destroy, "Delete"
-  - f.fields_for :meal_tags do |k|
-    %p
-      = k.label :name, "Tag"
-      = k.text_field :name
-      = k.check_box :_destroy
-      = k.label :_destroy, "Delete"
+
+  - f.fields_for :meal_steps do |builder|
+    = render "meal_step_fields", :f => builder
+  %p= link_to_add_fields "Add Step", f, :meal_steps
+  - f.fields_for :meal_tags do |builder|
+    = render "meal_tag_fields", :f => builder
+  %p= link_to_add_fields "Add Tag", f, :meal_tags
   %p
-    = f.submit "Create Meal"
+    = f.submit "Save Meal"
