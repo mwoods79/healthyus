@@ -1,12 +1,22 @@
-- form_for @meal do |f|
+- semantic_form_for @meal do |f|
   = f.error_messages
   %p
-    = f.label :title, "Title: "
+    %h3 Title:
     = f.text_field :title
-
+  
+  %br
+  %h3 Ingredients:
+  - f.fields_for :measurements do |builder|
+    = render "measurement_fields", :f => builder
+  
+  %br
+  %h3 Steps to make meal:
   - f.fields_for :meal_steps do |builder|
     = render "meal_step_fields", :f => builder
   %p= link_to_add_fields "Add Step", f, :meal_steps
+  
+  %br
+  %h3 Tags or quick descriptions:
   - f.fields_for :meal_tags do |builder|
     = render "meal_tag_fields", :f => builder
   %p= link_to_add_fields "Add Tag", f, :meal_tags
