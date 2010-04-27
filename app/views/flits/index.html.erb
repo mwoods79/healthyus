@@ -17,7 +17,7 @@ $(function() {
 })
 </script>
 
-<%- form_for :flit do |f| -%>
+<%- form_for :flit, @flit, :url => { :action => "create" } do |f| -%>
   <div id="new_flit_form">
     <h3 style="float: left;">What are you doing?</h3>
     <h3 id="char_count">140</h3>
