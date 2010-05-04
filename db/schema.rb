@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100309155335) do
+ActiveRecord::Schema.define(:version => 20100504051605) do
 
   create_table "common_weights", :force => true do |t|
     t.integer "food_id",                                                 :null => false
@@ -18,6 +18,30 @@ ActiveRecord::Schema.define(:version => 20100309155335) do
     t.string  "description", :limit => 80,                               :null => false
     t.decimal "weight",                    :precision => 7, :scale => 1, :null => false
   end
+
+  create_table "days", :force => true do |t|
+    t.date     "date"
+    t.integer  "breakfast"
+    t.integer  "lunch"
+    t.integer  "dinner"
+    t.integer  "snack_one"
+    t.integer  "snack_two"
+    t.integer  "snack_three"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "families", :force => true do |t|
+    t.string "name"
+  end
+
+  create_table "flits", :force => true do |t|
+    t.integer  "user_id",    :null => false
+    t.string   "message",    :null => false
+    t.datetime "created_at", :null => false
+  end
+
+  add_index "flits", ["user_id"], :name => "index_flits_on_user_id"
 
   create_table "food_groups", :force => true do |t|
     t.string "name", :limit => 60, :null => false
@@ -40,6 +64,28 @@ ActiveRecord::Schema.define(:version => 20100309155335) do
     t.decimal "protein_factor"
     t.decimal "fat_factor"
     t.decimal "carb_factor"
+  end
+
+  create_table "friendships", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "friendships", ["friend_id"], :name => "index_friendships_on_friend_id"
+  add_index "friendships", ["user_id"], :name => "index_friendships_on_user_id"
+
+  create_table "ingredients", :force => true do |t|
+    t.string  "name"
+    t.integer "meal_id"
+  end
+
+  create_table "meal_plans", :force => true do |t|
+    t.integer  "day_id"
+    t.integer  "family_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "meal_steps", :force => true do |t|
@@ -79,6 +125,11 @@ ActiveRecord::Schema.define(:version => 20100309155335) do
     t.string   "password_salt"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "male"
+    t.integer  "family_id"
   end
+
+  add_index "users", ["email"], :name => "index_users_on_email"
+  add_index "users", ["username"], :name => "index_users_on_username"
 
 end

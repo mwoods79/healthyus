@@ -8,7 +8,7 @@
     %script{:type=>"text/javascript", :src=>"http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"}
     %script{:type=>"text/javascript", :src=>"http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"}
     = javascript_include_tag 'application'
-    = stylesheet_link_tag 'application', 'formtastic', 'formtastic_changes', :cache => "all"
+    = stylesheet_link_tag 'application', 'formtastic', 'formtastic_changes', 'flits', :cache => "all"
     = yield(:head)
   
   %body
@@ -19,8 +19,8 @@
         %ul
           %li= link_to "Menu", root_url
           %li= link_to "Meals", meals_url
-          %li= link_to "Ingredients", ingredients_url
-          %li= link_to "Blog", root_url
+          %li= link_to "Ingredients", foods_url
+          %li= link_to "Blog", flits_url
           %li= link_to "Profile", root_url
           %li= link_to "Logout", logout_path
       .clear

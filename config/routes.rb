@@ -1,17 +1,22 @@
 ActionController::Routing::Routes.draw do |map|
 
   map.resources :meals
-
+  map.resources :sessions
+  map.resources :foods
+  map.resources :users
+  map.resources :flits
+  
   map.signup 'signup', :controller => 'users', :action => 'new'
   map.logout 'logout', :controller => 'sessions', :action => 'destroy'
   map.login 'login', :controller => 'sessions', :action => 'new'
-  map.resources :sessions
-
-  map.resources :ingredients
+  map.search '/search', :controller => 'flits', :action => 'search'
+  map.remove_friend '/remove_friend/:username', :controller => 'flits', :action => 'remove_friend'
+  map.following '/following', :controller => 'flits', :action => 'following'
+  map.user_flits '/:username', :controller => 'flits', :action => 'show'
+  map.toggle_follow_via_ajax '/:username/toggle_follow_via_ajax', :controller => 'flits', :action => 'toggle_follow_via_ajax'
+  map.toggle_follow '/:username/toggle_follow', :controller => 'flits', :action => 'toggle_follow'
   
-  map.resources :users
-  
-  map.root :controller => 'home'
+  map.root :controller => "home"
 
   # The priority is based upon order of creation: first created -> highest priority.
 

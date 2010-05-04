@@ -1,8 +1,9 @@
 - title @meal.title
 
 %h3 Ingredients
-- for measurement in @meal.measurements
-  %p= "#{measurement.amount_in_grams} + " " + #{measurement.food.name}"
+- for ingredient in @meal.ingredients
+  %li
+    %h3= h ingredient.name
 
 %h3 Steps
 %ol
@@ -17,8 +18,9 @@
       %h3=h tag.name
 
 %p
-  = link_to "Edit", edit_meal_path(@meal)
-  |
-  = link_to "Destroy", @meal, :confirm => 'Are you sure?', :method => :delete
-  |
+  - if current_user.is_admin?
+    = link_to "Edit", edit_meal_path(@meal)
+    |
+    = link_to "Destroy", @meal, :confirm => 'Are you sure?', :method => :delete
+    |
   = link_to "View All", meals_path
