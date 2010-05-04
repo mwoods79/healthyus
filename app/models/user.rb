@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   is_gravtastic :size => 50
   
   # new columns need to be added here to be writable through mass assignment
-  attr_accessible :username, :email, :password, :password_confirmation
+  attr_accessible :username, :email, :password, :password_confirmation, :male
   
   attr_accessor :password
   before_save :prepare_password
@@ -15,11 +15,13 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password
   validates_length_of :password, :minimum => 4, :allow_blank => true
   validates_exclusion_of :username, :in => %w( admin superuser following ), :message => "is not a useable username"
+  #validates_presence_of :male, :on => :create, :message => "can't be blank"
   
   has_many :meals, :dependent => :destroy
   has_many :flits, :dependent => :destroy
   has_many :friendships
   has_many :friends, :through => :friendships
+  belongs_to :family
 
   # ramonrails: added a few named_scope to ease out things
   # result: everyone except the user object/array
@@ -51,6 +53,10 @@ class User < ActiveRecord::Base
     if friendship
       friendship.destroy
     end
+  end
+  
+  def is_admin?
+    self.username == "mwoods79"
   end
   
   def is_friend?(friend)

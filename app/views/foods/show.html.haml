@@ -1,0 +1,12 @@
+- title(@food.description)
+
+%h2
+  Amount per 100 g
+%p
+
+- for food_nutrient in @food.food_nutrients
+  %p
+    %strong
+      = food_nutrient.nutrient.name + ":"
+    = food_nutrient.amount
+    = food_nutrient.nutrient.units

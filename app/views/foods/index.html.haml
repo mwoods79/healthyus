@@ -1,0 +1,11 @@
+
+- form_tag '/foods', :method => :get do
+  .txt
+    = text_field_tag 'search'
+    = submit_tag 'Search'
+
+- for food in @foods
+  %p
+    = link_to food.description, food_path(food)
+
+= will_paginate @foods  

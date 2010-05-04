@@ -2,7 +2,7 @@
   <%= link_to image_tag(current_user.gravatar_url(:size => 30), :border => 0), user_flits_path(current_user.username) %>
   <div class="contents">
     <%= link_to current_user.username, user_flits_path(current_user.username) %><br/>
-    <span class="small"><%= pluralize(current_user.flits.length, "Flit") %></span>
+    <span class="small"><%= pluralize(current_user.flits.length, "Encouragement") %></span>
   </div>
 </div>
 <div class="clear"></div>

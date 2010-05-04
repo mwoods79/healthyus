@@ -13,6 +13,10 @@ a {
   a img {
     border: none; }
 
+.meals {
+  border-top: 1px dashed #D2DADA;
+  padding: 10px; }
+
 .clear {
   clear: both;
   height: 0;

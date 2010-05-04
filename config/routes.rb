@@ -2,7 +2,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :meals
   map.resources :sessions
-  map.resources :ingredients
+  map.resources :foods
   map.resources :users
   map.resources :flits
   

@@ -1,4 +1,4 @@
-class AddIndexesToUsers < ActiveRecord::Migration
+class AddIndexesToUser < ActiveRecord::Migration
   def self.up
     add_index :users, :username
     add_index :users, :email

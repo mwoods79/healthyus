@@ -1,27 +1,37 @@
 - title "Meals"
 
 %p
-  %h3 
-    Create a
-    = link_to "new meal", new_meal_path
-    !
+  %h3
+    - if current_user.is_admin?
+      Create a
+      = link_to "new meal", new_meal_path
+      !
 
 - for meal in @meals
-  %p 
-    %h3 
-      Title:
-      = h meal.title
-  %p
-    %h3 Steps:
-    - for step in meal.meal_steps
-      %p= h step.name
-  %p
-    %h3 Tags:
-    - for tag in meal.meal_tags
-      %p= h tag.name
-      
-  = link_to 'Show', meal
-  = link_to 'Edit', edit_meal_path(meal)
-  = link_to 'Destroy', meal, :confirm => 'Are you sure?', :method => :delete
+  .meals
+    %h2= h meal.title
 
+    %h3 Ingredients
+    - for ingredient in meal.ingredients
+      %li
+        %h3= h ingredient.name
 
+    %h3 Steps
+    %ol
+      - for step in meal.meal_steps
+        %li
+          %h3=h step.name
+
+    %h3 Tags
+    %ul
+      - for tag in meal.meal_tags
+        %li
+          %h3=h tag.name
+
+    = link_to 'Show', meal
+    - if current_user.is_admin?
+      |
+      = link_to 'Edit', edit_meal_path(meal)
+      |
+      = link_to 'Destroy', meal, :confirm => 'Are you sure?', :method => :delete
+    %p

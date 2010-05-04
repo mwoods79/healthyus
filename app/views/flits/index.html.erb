@@ -17,7 +17,7 @@ $(function() {
 })
 </script>
 
-<%- form_for :flit, @flit, :url => { :action => "create" } do |f| -%>
+<%- form_for @flit, :url => { :action => "create" } do |f| -%>
   <div id="new_flit_form">
     <h3 style="float: left;">What are you doing?</h3>
     <h3 id="char_count">140</h3>
@@ -34,6 +34,8 @@ $(function() {
 <%- end -%>
 
 <%= render :partial => "flits_list", :locals => { :flits => @flits }%>
+
+<div class="clear"></div>
 
 <div id="side">
   <% if current_user %>

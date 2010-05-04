@@ -34,7 +34,7 @@ class FlitsController < ApplicationController
   end
   
   def following
-    @friends = current_user.friends 
+    @friends = current_user.friends
   end
   
   def remove_friend
@@ -54,11 +54,10 @@ class FlitsController < ApplicationController
   end
   
   def create
-    @flit = Flit.new(params[:flit])
-    @flit.user_id = current_user.id
-    @flit.message = @flit.message[0..140]
-    @flit.created_at = Time.now # HACK
-    @flit.save!
+    flit = current_user.flits.build()
+    flit.message = params[:flit][:message][0..140]
+    flit.created_at = Time.now # HACK
+    flit.save!
     redirect_to flits_url
   end
   
