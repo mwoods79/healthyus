@@ -1,2 +1,69 @@
-- title "Howdy :)"
-= "Welcome #{current_user.username}!"
+- title("Meals for #{Date.today}")
+- @family.users.each do |member|
+  .member
+    = link_to member.username, "/#{member.username}"
+    |
+    %strong
+      - if member.male
+        = "You eat two servings of the following."
+      - else
+        = "You eat a single serving of the following."
+%h1 Each recipe makes one serving.
+.meals
+  %h1 Breakfast
+  %h2= @breakfast.title
+  %h3
+    Ingredients
+  - @breakfast.ingredients.each do |ingredient|
+    %p= ingredient.name
+  %h3
+    Steps
+  - @breakfast.meal_steps.each do |step|
+    %p= step.name
+
+
+.meals
+  %h1 Snack
+  %h3
+    Ingredients
+  - @snack_one.ingredients.each do |ingredient|
+    %p= ingredient.name
+    
+.meals
+  %h1 Lunch
+  %h2= @lunch.title
+  %h3
+    Ingredients
+  - @lunch.ingredients.each do |ingredient|
+    %p= ingredient.name
+  %h3
+    Steps
+  - @lunch.meal_steps.each do |step|
+    %p= step.name
+
+
+.meals
+  %h1 Snack
+  %h3
+    Ingredients
+  - @snack_two.ingredients.each do |ingredient|
+    %p= ingredient.name
+
+.meals
+  %h1 Dinner
+  %h2= @dinner.title
+  %h3
+    Ingredients
+  - @dinner.ingredients.each do |ingredient|
+    %p= ingredient.name
+  %h3
+    Steps
+  - @dinner.meal_steps.each do |step|
+    %p= step.name
+    
+.meals
+  %h1 Snack
+  %h3
+    Ingredients
+  - @snack_three.ingredients.each do |ingredient|
+    %p= ingredient.name

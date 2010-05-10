@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100504051605) do
+ActiveRecord::Schema.define(:version => 20100510193201) do
 
   create_table "common_weights", :force => true do |t|
     t.integer "food_id",                                                 :null => false
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20100504051605) do
     t.integer  "snack_three"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "meal_plan_id"
   end
 
   create_table "families", :force => true do |t|
@@ -82,7 +83,6 @@ ActiveRecord::Schema.define(:version => 20100504051605) do
   end
 
   create_table "meal_plans", :force => true do |t|
-    t.integer  "day_id"
     t.integer  "family_id"
     t.datetime "created_at"
     t.datetime "updated_at"

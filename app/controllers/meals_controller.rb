@@ -48,12 +48,5 @@ class MealsController < ApplicationController
     flash[:notice] = "Successfully destroyed meal."
     redirect_to meals_url
   end
-  
-  private
-  
-  def check_credentials
-    unless current_user.is_admin?
-      redirect_to root_url
-    end
-  end
+
 end

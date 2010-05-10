@@ -5,7 +5,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :foods
   map.resources :users
   map.resources :flits
+  map.resources :families
   
+  map.families "/families", :controller => 'families', :action => 'index'
+  map.add_member "/:family/add_member", :controller => 'families', :action => 'add_member'
   map.signup 'signup', :controller => 'users', :action => 'new'
   map.logout 'logout', :controller => 'sessions', :action => 'destroy'
   map.login 'login', :controller => 'sessions', :action => 'new'
