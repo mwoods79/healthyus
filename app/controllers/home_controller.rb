@@ -1,5 +1,9 @@
 class HomeController < ApplicationController
   def index
+    if current_user.family.nil?
+      flash[:error] = "You do not have a family, please select one."
+      redirect_to families_url
+    end
     @family = current_user.family
     # @meal_plan = get_meal_plan(params[:date])
     @breakfast = random_meal("breakfast")
